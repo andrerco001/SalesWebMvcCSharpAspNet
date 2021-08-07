@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using SalesWebMvc.Data;
 using SalesWebMvc.Models;
 using SalesWebMvc.Services.Exceptions;
@@ -42,7 +40,7 @@ namespace SalesWebMvc.Services
                 _context.Seller.Remove(obj);
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateException e)
+            catch (DbUpdateException)
             {
                 throw new IntegrityException("Can't delete seller because he/she has sales");
             }
